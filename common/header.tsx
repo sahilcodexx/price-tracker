@@ -3,14 +3,14 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <header className="bg-white px-8 py-5 rounded-xl shadow-sm border-transparent ring ring-neutral-200 backdrop-blur-2xl flex items-center justify-between md:max-w-5xl mx-auto max-w-md top-5 sticky z-10">
+    <header className="bg-white/60 px-8 py-3 rounded-xl shadow-sm border-transparent ring ring-neutral-200 backdrop-blur-lg flex items-center justify-between md:max-w-5xl mx-auto max-w-sm top-5 sticky z-100 ">
       <div>
         <Image
           src={"/lightlogo.png"}
           alt="logo"
           width={600}
           height={200}
-          className="h-6 w-auto"
+          className="h-4 w-auto"
         />
       </div>
       <div>
