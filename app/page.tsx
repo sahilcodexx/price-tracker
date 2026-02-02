@@ -1,5 +1,6 @@
 import Header from "@/common/header";
 import Features from "@/components/features";
+import ProductForm from "@/components/prodcut-form";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
           </p>
         </div>
       </section>
+      <ProductForm />
       <Features />
     </main>
   );

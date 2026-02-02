@@ -7,6 +7,42 @@ import {
   Zap,
 } from "lucide-react";
 
+const features = [
+  {
+    icon: Zap,
+    title: "Instant Comparisons",
+    description:
+      "Quickly compare products side-by-side with real-time data and lightning-fast results.",
+  },
+  {
+    icon: Cpu,
+    title: "Comprehensive Data",
+    description:
+      "Access a vast database of product information, specifications, and user reviews for informed decisions.",
+  },
+  {
+    icon: Fingerprint,
+    title: "Secure & Private",
+    description:
+      "Shop with confidence knowing your data and privacy are protected on our platform.",
+  },
+  {
+    icon: Pencil,
+    title: "Customization",
+    description: "It supports helping developers and businesses innovate.",
+  },
+  {
+    icon: Settings2,
+    title: "Control",
+    description: "It supports helping developers and businesses innovate.",
+  },
+  {
+    icon: Sparkles,
+    title: "Built for AI",
+    description: "It supports helping developers and businesses innovate.",
+  },
+];
+
 export default function Features() {
   return (
     <section className="py-12 md:py-20">
@@ -23,67 +59,15 @@ export default function Features() {
         </div>
 
         <div className="relative mx-auto grid max-w-4xl divide-x divide-y border *:p-12 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <Zap className="size-4" />
-              <h3 className="text-sm font-medium">Instant Comparisons</h3>
+          {features.map((feature, index) => (
+            <div key={index} className="space-y-3 bg-white">
+              <div className="flex items-center gap-2">
+                <feature.icon className="size-4" />
+                <h3 className="text-sm font-medium">{feature.title}</h3>
+              </div>
+              <p className="text-sm">{feature.description}</p>
             </div>
-            <p className="text-sm">
-              Quickly compare products side-by-side with real-time data and
-              lightning-fast results.
-            </p>
-          </div>
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <Cpu className="size-4" />
-              <h3 className="text-sm font-medium">Comprehensive Data</h3>
-            </div>
-            <p className="text-sm">
-              Access a vast database of product information, specifications, and
-              user reviews for informed decisions.
-            </p>
-          </div>
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <Fingerprint className="size-4" />
-
-              <h3 className="text-sm font-medium">Secure & Private</h3>
-            </div>
-            <p className="text-sm">
-              Shop with confidence knowing your data and privacy are protected
-              on our platform.
-            </p>
-          </div>
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <Pencil className="size-4" />
-
-              <h3 className="text-sm font-medium">Customization</h3>
-            </div>
-            <p className="text-sm">
-              It supports helping developers and businesses innovate.
-            </p>
-          </div>
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <Settings2 className="size-4" />
-
-              <h3 className="text-sm font-medium">Control</h3>
-            </div>
-            <p className="text-sm">
-              It supports helping developers and businesses innovate.
-            </p>
-          </div>
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <Sparkles className="size-4" />
-
-              <h3 className="text-sm font-medium">Built for AI</h3>
-            </div>
-            <p className="text-sm">
-              It supports helping developers and businesses innovate.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>

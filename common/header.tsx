@@ -14,7 +14,7 @@ const Header = () => {
         />
       </div>
       <div>
-        <Button>Sgin in</Button>
+        <Button className="bg-orange-500 hover:bg-orange-600">Sgin in</Button>
       </div>
     </header>
   );
