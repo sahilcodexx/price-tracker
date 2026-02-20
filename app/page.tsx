@@ -4,6 +4,22 @@ import ProductForm from "@/components/prodcut-form";
 import { createClient } from "@/lib/superbase/server";
 import { TrendingDown } from "lucide-react";
 
+async function getProducts() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  
+  if (!user) return [];
+  
+  const { data: products } = await supabase
+    .from("products")
+    .select("*")
+    .eq("user_id", user.id);
+    
+  return products || [];
+}
+
 export default async function Home() {
   const supabase = await createClient();
   const {
