@@ -4,11 +4,15 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import AuthModel from "./authmodel";
 import { LogOut } from "lucide-react";
+import { signOut } from "@/app/action";
+import { User } from "@/utils/types";
 
-const AuthButton = ({ user }) => {
+const AuthButton = ({ user }: { user: User | null }) => {
+  const [showAuthModel, setShowAuthModel] = useState<boolean>(false);
+
   if (user) {
     return (
-      <form action={() => {}}>
+      <form action={signOut}>
         <Button>
           <LogOut className="w-4 h-4" />
           Sign Out
@@ -17,7 +21,6 @@ const AuthButton = ({ user }) => {
     );
   }
 
-  const [showAuthModel, setShowAuthModel] = useState<boolean>(false);
   return (
     <div>
       <Button

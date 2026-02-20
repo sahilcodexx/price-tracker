@@ -4,7 +4,7 @@ import AuthButton from "@/components/auth-button";
 import Image from "next/image";
 import { createClient } from "@/lib/superbase/client";
 
-import { User } from "@supabase/supabase-js";
+import { User } from "@/utils/types";
 
 const Header = () => {
   const [user, setUser] = useState<User | null>(null);
