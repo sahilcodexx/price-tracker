@@ -20,7 +20,7 @@ const ProductForm = () => {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="Paste your URL (Amazon,Walmart,Flipkart,...)"
-          className="h-12 text-base"
+          className="h-12 text-base bg-white "
           required
           disabled={isLoading}
         />
