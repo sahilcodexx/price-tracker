@@ -42,7 +42,7 @@ export default async function Home() {
           </p>
         </div>
       </section>
-      <ProductForm />
+      <ProductForm user={user} />
       {products.length === 0 && <Features />}
       
       {user && products.length === 0 && (

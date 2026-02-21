@@ -22,7 +22,7 @@ export async function scrapProduct(url: string): Promise<ScrapedProduct> {
               productImageUrl: { type: "string" },
             },
             prompt:
-              "Extract the product name as 'productName', current price as a number as 'currentPrice', currency code (USD, EUR, etc) as 'currencyCode', and product image URL as 'productImageUrl' if available",
+              "Extract the product name as 'productName', current price as a number as 'currentPrice', currency code (USD, INR, etc) as 'currencyCode', and product image URL as 'productImageUrl' if available",
           },
         },
       ],
@@ -35,6 +35,8 @@ export async function scrapProduct(url: string): Promise<ScrapedProduct> {
     return extractedData;
   } catch (error: unknown) {
     console.error("Firecrawl scrap error");
-    throw new Error(`Failed to srcap product: ${error instanceof Error ? error.message : "Unknown error"}`);
+    throw new Error(
+      `Failed to srcap product: ${error instanceof Error ? error.message : "Unknown error"}`,
+    );
   }
 }
