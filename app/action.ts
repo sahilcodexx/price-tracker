@@ -92,13 +92,56 @@ export async function deleteProduct(productId: number) {
       .from("products")
       .delete()
       .eq("id", productId);
+
     if (error) throw error;
     revalidatePath("/");
+
     return { success: true };
   } catch (error: unknown) {
     console.error("Add product error:", error);
     return {
-      error: error instanceof Error ? error.message : "Failed to delete product",
+      error:
+        error instanceof Error ? error.message : "Failed to delete product",
+    };
+  }
+}
+
+export async function getProduct() {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from("products")
+      .select()
+      .order("checked_at", { ascending: true });
+
+    if (error) throw error;
+    return data || [];
+  } catch (error: unknown) {
+    console.error(" product error:", error);
+    return {
+      error: error instanceof Error ? error.message : "Failed to get product",
+    };
+  }
+}
+
+export async function getPriceHistory(productId: number) {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from("products")
+      .select("*")
+      .eq("product_id", productId)
+      .order("checked_at", { ascending: true });
+
+    if (error) throw error;
+    revalidatePath("/");
+
+    return data || [];
+  } catch (error: unknown) {
+    console.error("Price History error:", error);
+    return {
+      error:
+        error instanceof Error ? error.message : "Failed to get Price History",
     };
   }
 }
