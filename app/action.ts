@@ -79,6 +79,26 @@ export async function addProdcut(formData: FormData) {
     revalidatePath("/");
   } catch (error: unknown) {
     console.error("Add product error:", error);
-    return { error: error instanceof Error ? error.message : "Failed to add product" };
+    return {
+      error: error instanceof Error ? error.message : "Failed to add product",
+    };
+  }
+}
+
+export async function deleteProduct(productId: number) {
+  try {
+    const supabase = await createClient();
+    const { error } = await supabase
+      .from("products")
+      .delete()
+      .eq("id", productId);
+    if (error) throw error;
+    revalidatePath("/");
+    return { success: true };
+  } catch (error: unknown) {
+    console.error("Add product error:", error);
+    return {
+      error: error instanceof Error ? error.message : "Failed to delete product",
+    };
   }
 }
