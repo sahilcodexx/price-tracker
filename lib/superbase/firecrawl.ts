@@ -1,10 +1,11 @@
 import FirecrawlApp from "@mendable/firecrawl-js";
+import { ScrapedProduct } from "@/utils/types";
 
 const app = new FirecrawlApp({
   apiKey: process.env.FIRECRAWLER_API_KEY,
 });
 
-export async function scrapProduct(url: Text) {
+export async function scrapProduct(url: string): Promise<ScrapedProduct> {
   try {
     const result = await app.scrape(url, {
       formats: [
@@ -26,14 +27,14 @@ export async function scrapProduct(url: Text) {
         },
       ],
     });
-    const extractedData = result.json;
+    const extractedData = result.json as ScrapedProduct;
 
     if (!extractedData || !extractedData.productName) {
       throw new Error("No data extracted from URL");
     }
     return extractedData;
-  } catch (error: Error) {
+  } catch (error: unknown) {
     console.error("Firecrawl scrap error");
-    throw new Error(`Failed to srcap product: ${error.message}`);
+    throw new Error(`Failed to srcap product: ${error instanceof Error ? error.message : "Unknown error"}`);
   }
 }
