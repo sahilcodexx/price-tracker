@@ -10,3 +10,7 @@ export async function signOut() {
   revalidatePath("/");
   redirect("/");
 }
+
+export async function addProdcut(fromData) {
+  
+}
