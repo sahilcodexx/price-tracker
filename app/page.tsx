@@ -1,6 +1,7 @@
 import Header from "@/common/header";
 import Features from "@/components/features";
 import ProductForm from "@/components/prodcut-form";
+import ProductCard from "@/components/product-card";
 import { createClient } from "@/lib/superbase/server";
 import { TrendingDown } from "lucide-react";
 
@@ -9,14 +10,14 @@ async function getProducts() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  
+
   if (!user) return [];
-  
+
   const { data: products } = await supabase
     .from("products")
     .select("*")
     .eq("user_id", user.id);
-    
+
   return products || [];
 }
 
@@ -44,7 +45,25 @@ export default async function Home() {
       </section>
       <ProductForm user={user} />
       {products.length === 0 && <Features />}
-      
+
+      {user && products.length > 0 && (
+        <section className="max-w-7xl mx-auto px-4 py-20">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-2xl font-semibold text-neutral-900">
+              Your Tracked Product
+            </h3>
+            <span className="text-sm text-neutral-500">
+              {products.length} {products.length === 1 ? "product" : "products"}
+            </span>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 items-start ">
+            {products.map((product) => (
+              <ProductCard key={product.id} prodcut={product} />
+            ))}
+          </div>
+        </section>
+      )}
+
       {user && products.length === 0 && (
         <section className="max-w-2xl mx-auto px-4 pb-20 text-center">
           <div className="bg-white rounded-xl border-2 border-dashed border-gray-300 p-12">
