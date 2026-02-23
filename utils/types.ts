@@ -37,3 +37,16 @@ export interface ScrapedProduct {
   currencyCode?: string;
   productImageUrl?: string;
 }
+
+export interface Product {
+  name: string;
+  image_url?: string;
+  currency: string;
+  url: string;
+}
+
+export interface SendPriceDropAlertResult {
+  success?: boolean;
+  data?: any;
+  error?: string | object;
+}
