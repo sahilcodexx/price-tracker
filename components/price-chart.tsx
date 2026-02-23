@@ -16,7 +16,7 @@ import { Loader2 } from "lucide-react";
 export default function PriceChart({ productId }: { productId: string }) {
   const [data, setData] = useState<{ date: string; price: number }[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-
+  
   useEffect(() => {
     async function loadData() {
       const history = await getPriceHistory(productId);
