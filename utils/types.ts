@@ -11,7 +11,7 @@ export interface User {
 }
 
 export interface Product {
-  id: number;
+  id: string;
   user_id: string;
   url: string;
   name: string;
@@ -23,11 +23,12 @@ export interface Product {
 }
 
 export interface PriceHistory {
-  id: number;
-  product_id: number;
+  id: string;
+  product_id: string;
   price: number;
   currency: string;
   created_at?: string;
+  checked_at?: string;
 }
 
 export interface ScrapedProduct {

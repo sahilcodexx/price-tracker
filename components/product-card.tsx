@@ -1,5 +1,5 @@
 "use client";
-import { deleteProduct } from "@/app/action";
+import { deleteProduct } from "@/app/actions";
 import React, { useState } from "react";
 import { toast } from "sonner";
 import {
@@ -9,9 +9,18 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { Badge } from "./ui/badge";
-import { ChevronDown, ChevronUp, TrendingDown } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronUp,
+  ExternalLink,
+  TrendingDown,
+} from "lucide-react";
 import { Button } from "./ui/button";
-const ProductCard = ({ key, prodcut }) => {
+import Link from "next/link";
+import PriceChart from "./price-chart";
+import { Product } from "@/utils/types";
+
+const ProductCard = ({ prodcut }: { prodcut: Product }) => {
   const [showChart, setShowChart] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
@@ -21,11 +30,10 @@ const ProductCard = ({ key, prodcut }) => {
     setDeleting(true);
     const result = await deleteProduct(prodcut.id);
 
-    if (result?.error) {
+    if ("error" in result && result.error) {
       toast.error(result.error);
     } else {
-      toast.success(result?.message || "Proudct deleted successfully");
-      setUrl("");
+      toast.success("Product deleted successfully");
     }
     setDeleting(false);
   };
@@ -78,11 +86,32 @@ const ProductCard = ({ key, prodcut }) => {
                 </>
               )}
             </Button>
+            <Button className="gap-1" asChild variant="outline" size="sm">
+              <Link
+                href={prodcut.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ExternalLink className="h-4 w-4" />
+                view product
+              </Link>
+            </Button>
+
+            <Button
+              variant="destructive"
+              size="sm"
+              onClick={handleDelete}
+              disabled={deleting}
+            >
+              Remove
+            </Button>
           </div>
         </CardContent>
-        <CardFooter>
-          <p>Card Footer</p>
-        </CardFooter>
+        {showChart && (
+          <CardFooter>
+            <PriceChart productId={prodcut.id} />
+          </CardFooter>
+        )}
       </Card>
     </div>
   );

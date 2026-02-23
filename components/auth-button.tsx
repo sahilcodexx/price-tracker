@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import AuthModel from "./authmodel";
 import { LogOut } from "lucide-react";
-import { signOut } from "@/app/action";
+import { signOut } from "@/app/actions";
 import { User } from "@/utils/types";
 
 const AuthButton = ({ user }: { user: User | null }) => {

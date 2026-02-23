@@ -85,7 +85,7 @@ export async function addProdcut(formData: FormData) {
   }
 }
 
-export async function deleteProduct(productId: number) {
+export async function deleteProduct(productId: string) {
   try {
     const supabase = await createClient();
     const { error } = await supabase
@@ -124,16 +124,23 @@ export async function getProduct() {
   }
 }
 
-export async function getPriceHistory(productId: number) {
+export async function getPriceHistory(productId: string) {
+  console.log("getPriceHistory called with:", productId, typeof productId);
   try {
     const supabase = await createClient();
+    console.log("Querying price_history for product_id:", productId);
     const { data, error } = await supabase
-      .from("products")
+      .from("price_history")
       .select("*")
       .eq("product_id", productId)
-      .order("checked_at", { ascending: true });
+      .order("created_at", { ascending: true });
 
-    if (error) throw error;
+    console.log("price_history data:", data, "error:", error);
+
+    if (error) {
+      console.error("Supabase error:", error);
+      throw error;
+    }
     revalidatePath("/");
 
     return data || [];

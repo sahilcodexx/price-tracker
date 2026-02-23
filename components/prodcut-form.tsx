@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import { Loader2 } from "lucide-react";
 import AuthModel from "./authmodel";
 import { User } from "@/utils/types";
-import { addProdcut } from "@/app/action";
+import { addProdcut } from "@/app/actions";
 import { toast } from "sonner";
 
 const ProductForm = ({ user }: { user?: User | null }) => {
