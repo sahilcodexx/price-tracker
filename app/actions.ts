@@ -125,30 +125,40 @@ export async function getProduct() {
 }
 
 export async function getPriceHistory(productId: string) {
-  console.log("getPriceHistory called with:", productId, typeof productId);
+  console.log("ACTION: getPriceHistory called with:", productId, typeof productId);
   try {
     const supabase = await createClient();
-    console.log("Querying price_history for product_id:", productId);
-    const { data, error } = await supabase
-      .from("price_history")
-      .select("*")
-      .eq("product_id", productId)
-      .order("created_at", { ascending: true });
-
-    console.log("price_history data:", data, "error:", error);
+    console.log("ACTION: Querying price_history for product_id:", productId);
+    
+    let queryResult;
+    try {
+      queryResult = await supabase
+        .from("price_history")
+        .select("*")
+        .eq("product_id", productId);
+    } catch (queryErr) {
+      console.error("ACTION: Query execution error:", queryErr);
+      throw queryErr;
+    }
+    
+    const { data, error } = queryResult;
+    console.log("ACTION: price_history data:", JSON.stringify(data), "error:", error);
 
     if (error) {
-      console.error("Supabase error:", error);
+      console.error("ACTION: Supabase error:", error);
       throw error;
     }
+    
+    console.log("ACTION: Returning data, length:", data?.length || 0);
     revalidatePath("/");
 
     return data || [];
   } catch (error: unknown) {
-    console.error("Price History error:", error);
-    return {
-      error:
-        error instanceof Error ? error.message : "Failed to get Price History",
+    console.error("ACTION: Price History error:", error);
+    const errorObj = {
+      error: error instanceof Error ? error.message : "Failed to get Price History"
     };
+    console.log("ACTION: Returning error object:", errorObj);
+    return errorObj;
   }
 }

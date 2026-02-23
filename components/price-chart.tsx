@@ -22,11 +22,11 @@ export default function PriceChart({ productId }: { productId: string }) {
       const history = await getPriceHistory(productId);
 
       if (!Array.isArray(history)) {
+        console.log("PriceChart: Not an array, setting empty");
         setData([]);
         setLoading(false);
         return;
       }
-      console.log(history);
 
       const chartData = history.map(
         (item: {
@@ -42,7 +42,6 @@ export default function PriceChart({ productId }: { productId: string }) {
       );
 
       setData(chartData);
-      console.log(chartData);
 
       setLoading(false);
     }
