@@ -3,7 +3,6 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY!);
 
-
 export async function sendPriceDropAlert(
   userEmail: string,
   product: Product,
@@ -23,81 +22,106 @@ export async function sendPriceDropAlert(
       to: userEmail,
       subject: `🎉 Price Drop Alert: ${product.name}`,
       html: `
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        </head>
-        <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+      body { background-color: #ffffff; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+      .container { max-width: 600px; margin: 0 auto; padding: 48px 24px; }
+      .brand-mono { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.1em; color: #111111; text-transform: uppercase; }
+      .text-main { font-family: 'Inter', sans-serif; font-size: 14px; color: #71717a; line-height: 1.5; }
+      .price-card { border: 1px solid #e4e4e7; border-radius: 6px; margin-top: 32px; overflow: hidden; }
+      .product-title { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: #18181b; margin: 0; }
+      .price-tag { font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 600; color: #18181b; letter-spacing: -0.04em; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td style="padding-bottom: 40px;">
+            <div class="brand-mono">Price Tracker</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h1 style="font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 600; color: #18181b; letter-spacing: -0.02em; margin: 0 0 8px 0;">
+              Price update: ${product.name}
+            </h1>
+            <p class="text-main" style="margin: 0;">
+              We detected a price change for an item on your watchlist.
+            </p>
+          </td>
+        </tr>
+      </table>
 
-          <div style="background: linear-gradient(135deg, #FA5D19 0%, #FF8C42 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
-            <h1 style="color: white; margin: 0; font-size: 28px;">🎉 Price Drop Alert!</h1>
-          </div>
-
-          <div style="background: #ffffff; padding: 30px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 10px 10px;">
-
+      <div class="price-card">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
             ${
               product.image_url
-                ? `<div style="text-align: center; margin-bottom: 20px;">
-                    <img src="${product.image_url}" alt="${product.name}" style="max-width: 200px; height: auto; border-radius: 8px; border: 1px solid #e5e7eb;">
-                  </div>`
+                ? `
+            <td width="140" valign="middle" style="padding: 24px; background-color: #fafafa; border-right: 1px solid #e4e4e7; text-align: center;">
+              <img src="${product.image_url}" alt="${product.name}" width="100" style="mix-blend-mode: multiply; filter: contrast(1.05);">
+            </td>
+            `
                 : ""
             }
+            
+            <td valign="middle" style="padding: 24px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+                    <div style="display: inline-block; font-size: 11px; font-weight: 600; background: #f4f4f5; color: #18181b; padding: 2px 8px; border-radius: 4px; margin-bottom: 12px; border: 1px solid #e4e4e7;">
+                      ${percentageDrop}% Drop
+                    </div>
+                    <p class="product-title">${product.name}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding-top: 20px;">
+                    <div style="font-size: 12px; color: #a1a1aa; text-decoration: line-through; margin-bottom: 2px;">
+                      ${product.currency} ${oldPrice.toFixed(2)}
+                    </div>
+                    <div class="price-tag">
+                      ${product.currency} ${newPrice.toFixed(2)}
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
 
-            <h2 style="color: #1f2937; margin-top: 0;">${product.name}</h2>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 32px;">
+        <tr>
+          <td align="left" valign="middle">
+            <a href="${product.url}" style="background-color: #18181b; color: #ffffff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; display: inline-block;">
+              View Product
+            </a>
+            <span style="padding-left: 20px; font-family: 'Inter', sans-serif; font-size: 13px; color: #16a34a; font-weight: 500;">
+              Save ${product.currency} ${priceDrop.toFixed(2)}
+            </span>
+          </td>
+        </tr>
+      </table>
 
-            <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 20px 0; border-radius: 4px;">
-              <p style="margin: 0; font-size: 14px; color: #92400e;">
-                <strong>Price dropped by ${percentageDrop}%!</strong>
-              </p>
-            </div>
-
-            <table style="width: 100%; margin: 20px 0;">
-              <tr>
-                <td style="padding: 10px; background: #f9fafb; border-radius: 4px;">
-                  <div style="font-size: 14px; color: #6b7280;">Previous Price</div>
-                  <div style="font-size: 20px; color: #9ca3af; text-decoration: line-through;">
-                    ${product.currency} ${oldPrice.toFixed(2)}
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 10px;">
-                  <div style="font-size: 14px; color: #6b7280;">Current Price</div>
-                  <div style="font-size: 32px; color: #FA5D19; font-weight: bold;">
-                    ${product.currency} ${newPrice.toFixed(2)}
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 10px; background: #dcfce7; border-radius: 4px;">
-                  <div style="font-size: 14px; color: #166534;">You Save</div>
-                  <div style="font-size: 24px; color: #16a34a; font-weight: bold;">
-                    ${product.currency} ${priceDrop.toFixed(2)}
-                  </div>
-                </td>
-              </tr>
-            </table>
-
-            <div style="text-align: center; margin: 30px 0;">
-              <a href="${product.url}" 
-                 style="display: inline-block; background: #FA5D19; color: white; padding: 14px 30px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 16px;">
-                View Product →
-              </a>
-            </div>
-
-            <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; margin-top: 20px; text-align: center; color: #6b7280; font-size: 12px;">
-              <p>You're receiving this email because you're tracking this product on Price Tracker.</p>
-              <p style="margin-top: 10px;">
-                <a href="${process.env.NEXT_PUBLIC_APP_URL}" style="color: #FA5D19; text-decoration: none;">
-                  View All Tracked Products
-                </a>
-              </p>
-            </div>
-          </div>
-        </body>
-      </html>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 64px; border-top: 1px solid #f4f4f5; padding-top: 24px;">
+        <tr>
+          <td>
+            <p style="font-family: 'Inter', sans-serif; font-size: 12px; color: #a1a1aa; margin: 0; line-height: 1.6;">
+              You are receiving this alert for <strong>${product.name}</strong>. 
+              Manage your <a href="${process.env.NEXT_PUBLIC_APP_URL}" style="color: #71717a; text-decoration: underline;">tracking dashboard</a> to adjust frequency.
+            </p>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
       `,
     });
 

@@ -13,7 +13,7 @@ const AuthButton = ({ user }: { user: User | null }) => {
   if (user) {
     return (
       <form action={signOut}>
-        <Button>
+        <Button className="bg-linear-to-b from-blue-500 to-blue-700">
           <LogOut className="w-4 h-4" />
           Sign Out
         </Button>

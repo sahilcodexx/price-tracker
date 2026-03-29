@@ -29,7 +29,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="bg-white/60 px-8 py-3 rounded-xl shadow-sm border-transparent ring ring-neutral-200 backdrop-blur-lg flex items-center justify-between md:max-w-5xl mx-auto max-w-sm top-5 sticky z-20 ">
+    <header className="bg-white/60 px-8 py-3 rounded-full shadow-sm border-transparent ring ring-neutral-200 backdrop-blur-lg flex items-center justify-between md:max-w-5xl mx-auto max-w-sm top-5 sticky z-20 w-full">
       <div>
         <Image
           src={"/lightlogo.png"}
