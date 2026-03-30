@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Charm } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import Header from "@/common/header";
+import Footer from "@/components/layout/footer";
 
 const inter = Inter({ subsets: ["latin"] });
+const charm = Charm({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-charm",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,10 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} ${charm.variable} antialiased`}>
         <Header />
-
         {children}
+        <Footer />
         <Toaster richColors />
       </body>
     </html>

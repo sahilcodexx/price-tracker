@@ -14,7 +14,7 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     quote:
-      "Efferd is so polished I might just retire and become a full-time potato farmer. The ecosystem is in safe hands.",
+      "This tool saved me hundreds of dollars! I tracked a phone for 2 weeks and got it at the lowest price.",
     image: "https://github.com/shadcn.png",
     name: "Shadcn",
     role: "Founder",
@@ -22,16 +22,15 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Efferd is why I still have hair. No more pulling it out over centering divs or fighting with CSS grid.",
+      "Best price tracker I've used. The email alerts are super convenient and always on time.",
     image: "https://github.com/rauchg.png",
     name: "Guillermo Rauch",
     role: "CEO",
     company: "Vercel",
   },
-
   {
     quote:
-      "I tried to buy Efferd but they wouldn't sell. So I just bought Twitter instead to complain about it.",
+      "I bought my entire shopping list at 40% off just by setting up price alerts. This is incredible!",
     image: "https://unavatar.io/x/elonmusk",
     name: "Elon Musk",
     role: "CEO",
@@ -39,7 +38,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "We just acquired Efferd for 3 gazillion dollars. We're calling it iEfferd. It's our best product yet.",
+      "Simple and effective. Just paste the product link and forget about checking prices manually.",
     image: "https://unavatar.io/x/tim_cook",
     name: "Tim Cook",
     role: "CEO",
@@ -47,7 +46,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "I'm considering shipping Efferd components with Prime delivery. 2-day shipping on beautiful UIs? Done.",
+      "Great for online shoppers! I've saved over $500 in the last month alone using this tool.",
     image: "https://unavatar.io/x/JeffBezos",
     name: "Jeff Bezos",
     role: "Founder",
@@ -55,7 +54,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "We're rewriting OpenAI's entire frontend in Efferd. The AGI told us it's the only logical choice.",
+      "The historical price chart helped me understand the best time to buy. Highly recommend!",
     image: "https://unavatar.io/x/sama",
     name: "Sam Altman",
     role: "CEO",
@@ -63,7 +62,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "We processed 100 petabytes of data to find the perfect UI library. The algorithm returned 'Efferd' with 99.9% confidence.",
+      "Works perfectly with Amazon, Flipkart, Myntra - all my favorite shopping sites. Game changer!",
     image: "https://unavatar.io/x/sundarpichai",
     name: "Sundar Pichai",
     role: "CEO",
@@ -71,7 +70,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Our links might 404 sometimes, but thanks to Efferd, at least the 404 page looks absolutely stunning.",
+      "Finally, a tool that actually works! No more FOMO on sales - I get notified every time.",
     image: "https://github.com/steven-tey.png",
     name: "Steven Tey",
     role: "Founder",
@@ -79,7 +78,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "It's so fast, I finished my UI sprint before my next meeting even started. Open source for the win.",
+      "Super easy to use. Now I never miss a good deal thanks to the instant notifications!",
     image: "https://unavatar.io/x/peer_rich",
     name: "Peer Richelsen",
     role: "Co-Founder",

@@ -39,10 +39,10 @@ const OrbitAnimation = () => {
     <Container className="flex flex-col items-center justify-center mt-50 h-50">
       <div className="flex flex-col items-center gap-4">
         <h2 className="text-4xl max-w-sm text-center font-medium capitalize leading-tighter tracking-tight">
-          Stay connected with your favorite app
+          Track prices across top e-commerce sites
         </h2>
         <p className="text-sm text-neutral-600">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          We monitor prices from all major shopping platforms so you never miss a deal.
         </p>
       </div>
       <div className=" min-h-40 w-full relative overflow-hidden mask-t-from-60%">
