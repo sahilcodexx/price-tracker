@@ -41,7 +41,7 @@ const OrbitAnimation = () => {
         <h2 className="text-4xl max-w-sm text-center font-medium capitalize leading-tighter tracking-tight">
           Track prices across top e-commerce sites
         </h2>
-        <p className="text-sm text-neutral-600">
+        <p className="text-sm text-neutral-600 max-w-xs text-center">
           We monitor prices from all major shopping platforms so you never miss a deal.
         </p>
       </div>

@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <Container>
       <div className="flex flex-col gap-4">
-        <div className="flex items-start justify-between border-b pb-2 border-neutral-200/60">
+        <div className="flex items-start justify-between border-b pb-2 px-3 border-neutral-200/60">
           <span className="flex flex-col justify-start  gap-1">
             <Image src="/lightlogo.png" height={100} width={150} alt="Logo" />
             <p className="text-xs text-neutral-600 max-w-50 leading-tight pl-0.5">
@@ -45,7 +45,7 @@ const Footer = () => {
             </h2>
           </div>
         </div>
-        <div className="flex justify-between items-start h-10 pt-3 mb-5 bg-neutral-50">
+        <div className="flex justify-between items-start h-10 pt-3 mb-5 bg-neutral-50 px-3">
           <div>
             <p className="text-xs text-neutral-500 flex gap-1">
               <p className="text-neutral-700"> © 2026 </p>

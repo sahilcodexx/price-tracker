@@ -2,7 +2,16 @@
 import Container from "@/common/container";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { ClipboardPaste, Copy, Text, TrendingDown, Mail, CheckCircle, ArrowRight, Search } from "lucide-react";
+import {
+  ClipboardPaste,
+  Copy,
+  Text,
+  TrendingDown,
+  Mail,
+  CheckCircle,
+  ArrowRight,
+  Search,
+} from "lucide-react";
 import Image from "next/image";
 
 const stepsData = [
@@ -33,14 +42,18 @@ const Steps = () => {
         <h2 className="text-4xl max-w-sm text-center font-medium capitalize leading-tighter tracking-tight">
           Start Tracking Prices in 3 Easy Steps
         </h2>
-        <p className="text-sm text-neutral-600">
-          Copy any product link, we will monitor the price and notify you when it drops.
+        <p className="text-sm text-neutral-600 text-center max-w-xs">
+          Copy any product link, we will monitor the price and notify you when
+          it drops.
         </p>
       </div>
 
-      <div className="flex items-center justify-center gap-10">
+      <div className=" flex-col flex lg:flex-row items-center justify-center gap-x-10 md:gap-10">
         {stepsData.map((step) => (
-          <div key={step.id} className="bg-white p-2 rounded-2xl shadow-md border-transparent border ring ring-neutral-100">
+          <div
+            key={step.id}
+            className="bg-white p-2 rounded-2xl shadow-md border-transparent border ring ring-neutral-100"
+          >
             <div className="bg-neutral-100 min-h-50 max-w-60 w-60 rounded-xl py-6 px-8">
               <div>
                 {step.animation === "copy" && <CopyAnimation />}
@@ -50,7 +63,9 @@ const Steps = () => {
             </div>
             <div className="px-4 py-2">
               <h2 className="text-sm">{step.title}</h2>
-              <p className="text-xs text-neutral-500 whitespace-nowrap">{step.description}</p>
+              <p className="text-xs text-neutral-500 whitespace-nowrap">
+                {step.description}
+              </p>
             </div>
           </div>
         ))}

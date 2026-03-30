@@ -45,8 +45,8 @@ export default function FaqSection() {
   return (
     <Container className="py-12 lg:py-20">
       <div className="flex flex-col gap-12 lg:gap-16">
-        <div className="mx-auto w-full max-w-2xl text-center">
-          <h2 className="text-4xl font-medium capitalize leading-tighter tracking-tight">
+        <div className="mx-auto w-full max-w-2xl text-center flex items-center flex-col">
+          <h2 className="text-4xl font-medium capitalize leading-tighter max-w-xs  tracking-tight">
             Frequently Asked Questions
           </h2>
           <p className="text-sm text-neutral-600 mt-2">
@@ -54,7 +54,7 @@ export default function FaqSection() {
           </p>
         </div>
 
-        <div className="mx-auto w-full max-w-2xl">
+        <div className="mx-auto w-full max-w-2xl px-5">
           <Accordion type="single" className="w-full">
             {faqsData.map((faq) => (
               <AccordionItem key={faq.question} value={faq.question}>

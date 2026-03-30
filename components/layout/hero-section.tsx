@@ -6,8 +6,8 @@ import Image from "next/image";
 const HeroSection = () => {
   return (
     <main className="font-sans flex flex-col w-full relative gap-10 mb-40 overflow-hidden">
-      <div className=" w-240 h-60 bg-blue-50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"></div>
-      <div className=" w-240 h-60 bg-orange-100 absolute  left-1/2 -translate-x-1/2 -translate-y-3/3 rounded-full blur-3xl"></div>
+      <div className=" hidden w-240 h-60 bg-blue-50 lg:absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"></div>
+      <div className="  w-240 h-60 bg-orange-100 absolute  left-1/2 -translate-x-1/2 -translate-y-3/3 rounded-full blur-3xl"></div>
       <section className="py-20 px-4 text-center ">
         <div className="max-w-7xl mx-auto flex flex-col gap-5  items-center">
           <div className="inline-flex items-center text-[10px] bg-white  px-3 rounded-full  shadow-sm border-transparent ring ring-neutral-600/20 py-1.5 mb-4">
@@ -50,7 +50,7 @@ const HeroSection = () => {
             src={"/image.png"}
             width={1200}
             height={800}
-            className="absolute z-10 border   rounded-t-3xl bg-neutral-900 px-7 lg:p-0"
+            className="absolute z-10 border   rounded-t-3xl  px-7 lg:p-0"
           />
         </div>
         <div className="w-full rounded-b-3xl lg:rounded-b-[40px]  bg-linear-to-t from-blue-400 via-blue-700 to-blue-800 h-40 md:h-95 lg:min-h-155 mask-t-from-30% flex items-center justify-center relative"></div>
