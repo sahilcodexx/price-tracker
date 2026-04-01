@@ -28,19 +28,6 @@ const icons = [
   { src: "https://cdn.worldvectorlogo.com/logos/zara-2.svg", delay: "12.8s" },
   { src: "https://cdn.worldvectorlogo.com/logos/ebay.svg", delay: "14.4s" },
   { src: "https://cdn.worldvectorlogo.com/logos/snapdeal.svg", delay: "16s" },
-  {
-    src: "https://cdn.worldvectorlogo.com/logos/shopclues.svg",
-    delay: "17.6s",
-  },
-  {
-    src: "https://cdn.worldvectorlogo.com/logos/paytm-mall.svg",
-    delay: "19.2s",
-  },
-  { src: "https://cdn.worldvectorlogo.com/logos/cred.svg", delay: "20.8s" },
-  {
-    src: "https://cdn.worldvectorlogo.com/logos/urban-ladder.svg",
-    delay: "22.4s",
-  },
 ];
 
 const OrbitAnimation = () => {
