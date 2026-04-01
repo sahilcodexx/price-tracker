@@ -3,8 +3,8 @@
 // import ProductCard from "@/components/product-card";
 // import { TrendingDown } from "lucide-react";
 import HeroSection from "@/components/layout/hero-section";
+import OrbitAnimation from "@/components/layout/orbit-animation";
 import { createClient } from "@/lib/superbase/server";
-
 
 async function getProducts() {
   const supabase = await createClient();
@@ -30,13 +30,15 @@ export default async function Home() {
   const products = user ? await getProducts() : [];
 
   return (
-   <>
-   <HeroSection />
-   </>
+    <>
+      <HeroSection />
+      <OrbitAnimation />
+    </>
   );
 }
 
-{/* <ProductForm user={user} />
+{
+  /* <ProductForm user={user} />
 {products.length === 0 && <Features />}
 
 {user && products.length > 0 && (
@@ -69,4 +71,5 @@ export default async function Home() {
       </p>
     </div>
   </section>
-)} */}
+)} */
+}

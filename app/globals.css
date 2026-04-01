@@ -120,6 +120,26 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply    bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased;
   }
+}
+
+@theme {
+  --animate-orbit: orbit var(--orbit-duration) linear infinite;
+
+  @keyframes orbit {
+    0% {
+      transform: rotate(0deg) translateX(var(--translate-position)) rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg) translateX(var(--translate-position))
+        rotate(-360deg);
+    }
+  }
+}
+
+.animate-orbit {
+  animation: orbit var(--orbit-duration) linear infinite;
+  transform-origin: center center;
 }
