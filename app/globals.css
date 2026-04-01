@@ -129,12 +129,12 @@
 
   @keyframes orbit {
     0% {
-      transform: rotate(0deg) translateX(var(--translate-position)) rotate(0deg);
+      transform: rotate(40deg) translateX(var(--translate-position)) rotate(-40deg);
     }
 
     100% {
-      transform: rotate(360deg) translateX(var(--translate-position))
-        rotate(-360deg);
+      transform: rotate(450deg) translateX(var(--translate-position))
+        rotate(-450deg);
     }
   }
 }
