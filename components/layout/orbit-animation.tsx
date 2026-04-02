@@ -42,7 +42,7 @@ const OrbitAnimation = () => {
           Stay connected with your favorite app
         </h2>
         <p className="text-sm text-neutral-600">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.{" "}
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
         </p>
       </div>
       <div className=" min-h-40 w-full relative overflow-hidden mask-t-from-60%">

@@ -4,6 +4,7 @@
 // import { TrendingDown } from "lucide-react";
 import HeroSection from "@/components/layout/hero-section";
 import OrbitAnimation from "@/components/layout/orbit-animation";
+import Steps from "@/components/layout/steps-section";
 import { createClient } from "@/lib/superbase/server";
 
 async function getProducts() {
@@ -33,6 +34,7 @@ export default async function Home() {
     <>
       <HeroSection />
       <OrbitAnimation />
+      <Steps />
     </>
   );
 }

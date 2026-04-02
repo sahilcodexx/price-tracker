@@ -7,7 +7,7 @@ interface ContainerProps {
 
 const Container = ({ children, className }: ContainerProps) => {
   return (
-    <section className={`max-w-4xl m-auto ${className}`}>
+    <section className={`max-w-4xl m-auto my-10 ${className}`}>
         {children}
     </section>
   )
