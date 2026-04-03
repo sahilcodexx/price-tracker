@@ -36,7 +36,7 @@ const OrbitAnimation = () => {
   const translatePosition = 240;
 
   return (
-    <Container className="flex flex-col items-center justify-center  h-50">
+    <Container className="flex flex-col items-center justify-center mt-50 h-50">
       <div className="flex flex-col items-center gap-4">
         <h2 className="text-4xl max-w-sm text-center font-medium capitalize leading-tighter tracking-tight">
           Stay connected with your favorite app

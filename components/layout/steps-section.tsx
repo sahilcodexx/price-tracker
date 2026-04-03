@@ -1,23 +1,59 @@
 "use client";
 import Container from "@/common/container";
-import React from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
-import { ClipboardPaste, Copy, Text } from "lucide-react";
+import { ClipboardPaste, Copy, Text, TrendingDown, Mail, CheckCircle, ArrowRight, Search } from "lucide-react";
+import Image from "next/image";
+
+const stepsData = [
+  {
+    id: 1,
+    title: "Copy and Paste",
+    description: "Copy product URL from any  site",
+    animation: "copy",
+  },
+  {
+    id: 2,
+    title: "Track Prices",
+    description: "We monitor prices 24/7 for you",
+    animation: "price",
+  },
+  {
+    id: 3,
+    title: "Get Alerts",
+    description: "Receive  alert when prices drop",
+    animation: "alert",
+  },
+];
 
 const Steps = () => {
   return (
-    <Container className="flex items-center justify-center">
-      <div className="bg-white p-2 rounded-2xl shadow-md border-transparent border ring ring-neutral-100">
-        <div className="bg-neutral-100 min-h-50 max-w-60 w-60 rounded-xl py-6 px-8">
-          <div>
-            {/* <CopyAnimation /> */}
-            <DownPriceAnimation />
+    <Container className="flex items-center justify-center gap-10 flex-col">
+      <div className="flex flex-col items-center gap-4">
+        <h2 className="text-4xl max-w-sm text-center font-medium capitalize leading-tighter tracking-tight">
+          Start Tracking Prices in 3 Easy Steps
+        </h2>
+        <p className="text-sm text-neutral-600">
+          Copy any product link, we will monitor the price and notify you when it drops.
+        </p>
+      </div>
+
+      <div className="flex items-center justify-center gap-10">
+        {stepsData.map((step) => (
+          <div key={step.id} className="bg-white p-2 rounded-2xl shadow-md border-transparent border ring ring-neutral-100">
+            <div className="bg-neutral-100 min-h-50 max-w-60 w-60 rounded-xl py-6 px-8">
+              <div>
+                {step.animation === "copy" && <CopyAnimation />}
+                {step.animation === "price" && <DownPriceAnimation />}
+                {step.animation === "alert" && <EmailAnimation />}
+              </div>
+            </div>
+            <div className="px-4 py-2">
+              <h2 className="text-sm">{step.title}</h2>
+              <p className="text-xs text-neutral-500 whitespace-nowrap">{step.description}</p>
+            </div>
           </div>
-        </div>
-        <div className="px-4 py-2">
-          <h2 className="text-sm"> Copy and Paste</h2>
-          <p className="text-xs text-neutral-600"> Copy and Paste</p>
-        </div>
+        ))}
       </div>
     </Container>
   );
@@ -25,16 +61,16 @@ const Steps = () => {
 
 export default Steps;
 
-const CopyAnimation = () => {
-  const steps = [
-    { label: "Copy Urls", icon: <Copy size={14} /> },
-    { label: "Paste Urls", icon: <ClipboardPaste size={14} /> },
-    { label: "Get Details", icon: <Text size={14} /> },
-  ];
+const copySteps = [
+  { label: "Copy URL", icon: <Copy size={14} /> },
+  { label: "Paste URL", icon: <ClipboardPaste size={14} /> },
+  { label: "Track It", icon: <Search size={14} /> },
+];
 
+const CopyAnimation = () => {
   return (
     <div className="flex flex-col gap-3 justify-center h-full w-full ">
-      {steps.map((step, index) => (
+      {copySteps.map((step, index) => (
         <motion.div
           initial={{ y: 10, filter: "blur(3px)", opacity: 0 }}
           animate={{ y: 0, filter: "blur(0)", opacity: 100 }}
@@ -52,54 +88,72 @@ const CopyAnimation = () => {
   );
 };
 
-// const title = "Just Copy and Paste URL";
-// const words = title.split(" ");
-// const lastWordIndex = words.length - 1;
-// return words.map((word, i) => {
-//   const isLastWord = i === lastWordIndex;
-
-//   return (
-//     <motion.span
-//       initial={{ opacity: 0, filter: "blur(6px)" }}
-//       animate={{ opacity: 100, filter: "blur(0)" }}
-//       transition={{ delay: 0.2 * i, duration: 0.8 }}
-//       key={i}
-//       className="mr-2 inline-block"
-//     >
-//       {word.split("").map((char, j) => (
-//         <motion.span
-//           key={j}
-//           className={`text-sm text-wrap font-[450] leading- tracking-tight ${
-//             isLastWord
-//               ? "text-black/70 font-medium dark:text-white/90"
-//               : "text-black/40 dark:text-zinc-600"
-//           }`}
-//         >
-//           {char}
-//         </motion.span>
-//       ))}
-//     </motion.span>
-//   );
-// });
+const priceData = [
+  { height: 160, price: 1299 },
+  { height: 120, price: 999 },
+  { height: 80, price: 699 },
+];
 
 const DownPriceAnimation = () => {
+  const [bars] = useState(() => priceData);
+
   return (
-    // <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-    //   <motion.path
-    //     d="M48.13,11.32a3,3,0,0,0-4.19,0L32.13,23.13l-7.29-7.29a3,3,0,0,0-4.19,0L8.59,27.9l.46-6a2.42,2.42,0,0,0-4.78-.71L1.08,35.53A3.3,3.3,0,0,0,5,39.47l14.18-3.18a2.42,2.42,0,0,0-.71-4.77l-5.54.42,9.8-9.81L30,29.42a3,3,0,0,0,4.2,0l13.9-13.9A3,3,0,0,0,48.13,11.32Z"
-    //     fill="none"
-    //     stroke="currentColor"
-    //     strokeWidth=""
-    //     strokeLinecap="round"
-    //     strokeLinejoin="round"
-    //     strokeDasharray="1000"
-    //     initial={{ strokeDashoffset: 1000  }}
-    //     animate={{ strokeDashoffset: 0 }}
-    //     transition={{ duration: 5 , ease: "easeOut" }}
-    //   />
-    // </motion.svg>
-    <div>
-      3
+    <div className="flex items-end gap-8">
+      {bars.map((bar, i) => (
+        <motion.div
+          key={i}
+          className="bg-white shadow-sm w-10 origin-bottom flex items-end justify-center"
+          style={{ height: bar.height }}
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            duration: 0.8,
+            delay: i * 0.2,
+            ease: "easeOut",
+          }}
+        >
+          <span className="flex items-center justify-center h-full text-xs font-semibold text-neutral-500 rotate-[-90deg] text-center mb-2">
+            ₹{bar.price}
+          </span>
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+const notifications = [
+  { id: 1, name: "Price Alert", message: "Price dropped ..." },
+  { id: 2, name: "Flash Sale", message: "Flat 50% off on..." },
+  { id: 3, name: "Deal Alert", message: "Limited time off..." },
+];
+
+const EmailAnimation = () => {
+  return (
+    <div className="flex flex-col gap-2">
+      {notifications.map((email, index) => (
+        <motion.div
+          initial={{ x: 10, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ delay: index * 0.4, duration: 1 }}
+          viewport={{ once: false }}
+          key={email.id}
+          className="flex items-center justify-between gap-3 bg-white px-3 py-1 rounded-lg border border-neutral-200 shadow-xs"
+        >
+          <Image
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/1280px-Gmail_icon_%282020%29.svg.png"
+            alt="gmail"
+            height={400}
+            width={1500}
+            className="h-5 w-7"
+          />
+          <div className="flex-1 border-l pl-2">
+            <h3 className="text-sm text-neutral-800">{email.name}</h3>
+            <p className="text-xs text-neutral-500">{email.message}</p>
+          </div>
+        </motion.div>
+      ))}
     </div>
   );
 };

@@ -33,8 +33,8 @@ export default async function Home() {
   return (
     <>
       <HeroSection />
-      <OrbitAnimation />
       <Steps />
+      <OrbitAnimation />
     </>
   );
 }
