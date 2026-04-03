@@ -29,18 +29,20 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="bg-white/60 px-8 py-3 rounded-full shadow-sm border-transparent ring ring-neutral-200 backdrop-blur-lg flex items-center justify-between md:max-w-5xl mx-auto max-w-sm top-5 sticky z-20 w-full">
-      <div>
-        <Image
-          src={"/lightlogo.png"}
-          alt="logo"
-          width={600}
-          height={200}
-          className="h-4 w-auto"
-        />
-      </div>
-      <div>
-        <AuthButton user={user} />
+    <header className="bg-neutral-50/30 px-8 py-3 border-b border-neutral-200  backdrop-blur-lg top-0 sticky z-20 w-full">
+      <div className="flex items-center justify-between md:max-w-4xl mx-auto max-w-sm ">
+        <div>
+          <Image
+            src={"/lightlogo.png"}
+            alt="logo"
+            width={600}
+            height={200}
+            className="h-4 w-auto"
+          />
+        </div>
+        <div>
+          <AuthButton user={user} />
+        </div>
       </div>
     </header>
   );

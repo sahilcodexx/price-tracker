@@ -13,8 +13,8 @@ const AuthButton = ({ user }: { user: User | null }) => {
   if (user) {
     return (
       <form action={signOut}>
-        <Button className="bg-linear-to-b from-blue-500 to-blue-700">
-          <LogOut className="w-4 h-4" />
+        <Button size={"sm"} className="bg-linear-to-b from-blue-500 to-blue-700 text-xs">
+          <LogOut className="w-3 h-3" />
           Sign Out
         </Button>
       </form>
