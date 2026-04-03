@@ -22,6 +22,7 @@
     "@tailark": "https://tailark.com/r/{name}.json",
     "@efferd": "https://efferd.com/r/{name}.json",
     "@bundui": "https://bundui.io/r/{name}.json",
-    "@motion-primitives": "https://motion-primitives.com/c/{name}.json"
+    "@motion-primitives": "https://motion-primitives.com/c/{name}.json",
+    "@shadcncraft": "https://shadcncraft.com/r/{name}.json"
   }
 }

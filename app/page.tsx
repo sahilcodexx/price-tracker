@@ -2,9 +2,12 @@
 // import ProductForm from "@/components/prodcut-form";
 // import ProductCard from "@/components/product-card";
 // import { TrendingDown } from "lucide-react";
+import FaqSection from "@/components/layout/faqs-sections";
 import HeroSection from "@/components/layout/hero-section";
 import OrbitAnimation from "@/components/layout/orbit-animation";
 import Steps from "@/components/layout/steps-section";
+import { TestimonialsSection } from "@/components/testimonials-section";
+import { Accordion } from "@/components/ui/accordion";
 import { createClient } from "@/lib/superbase/server";
 
 async function getProducts() {
@@ -35,6 +38,8 @@ export default async function Home() {
       <HeroSection />
       <Steps />
       <OrbitAnimation />
+      <TestimonialsSection  />
+      <FaqSection />
     </>
   );
 }
