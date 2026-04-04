@@ -8,7 +8,7 @@ const HeroSection = () => {
   return (
     <MeshGradient>
       <main className="font-sans flex flex-col w-full relative gap-10 mb-40 overflow-hidden">
-        <div className="  w-80 h-60 bg-blue-50 blur-3xl absolute   rounded-full -left-10 -top-10"></div>
+        <div className=" w-30  md:w-80 h-60 bg-blue-50 blur-3xl absolute   rounded-full -left-10 -top-10"></div>
         <section className="py-20 px-4 text-center ">
           <div className="max-w-7xl mx-auto flex flex-col gap-5  items-center">
             <div className="inline-flex items-center text-[10px] bg-white  px-3 rounded-full  shadow-sm border-transparent ring ring-neutral-600/20 py-1.5 mb-4">

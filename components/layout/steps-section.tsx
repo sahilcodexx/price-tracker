@@ -39,7 +39,7 @@ const Steps = () => {
   return (
     <Container className="flex items-center justify-center gap-10 flex-col">
       <div className="flex flex-col items-center gap-4">
-        <h2 className="text-4xl max-w-sm text-center font-medium capitalize leading-tighter tracking-tight">
+        <h2 className="text-3xl md:text-4xl max-w-sm text-center font-medium capitalize leading-tighter tracking-tight">
           Start Tracking Prices in 3 Easy Steps
         </h2>
         <p className="text-sm text-neutral-600 text-center max-w-xs">
@@ -48,11 +48,11 @@ const Steps = () => {
         </p>
       </div>
 
-      <div className=" flex-col flex lg:flex-row items-center justify-center gap-x-10 md:gap-10">
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-x-10 md:gap-10">
         {stepsData.map((step) => (
           <div
             key={step.id}
-            className="bg-white p-2 rounded-2xl shadow-md border-transparent border ring ring-neutral-100"
+            className="bg-white p-2 rounded-2xl shadow-md border-transparent border ring ring-neutral-100 mt-5 md:mt-0"
           >
             <div className="bg-neutral-100 min-h-50 max-w-60 w-60 rounded-xl py-6 px-8">
               <div>

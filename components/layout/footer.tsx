@@ -39,8 +39,8 @@ const Footer = () => {
           </span>
         </div>
         <div className="lg:mask-b-from-40% flex items-center">
-          <div className="flex items-center justify-center pt-10 ">
-            <h2 className="bg-linear-to-t from-neutral-100 text-center via-neutral-200 to-neutral-300 bg-clip-text text-7xl font-bold text-transparent md:text-[160px]">
+          <div className="flex items-center justify-center pt-10 w-full">
+            <h2 className="bg-linear-to-t from-neutral-100 text-center via-neutral-200 to-neutral-300 bg-clip-text text-6xl font-bold text-transparent md:text-[160px]">
               Trackhatke.
             </h2>
           </div>
