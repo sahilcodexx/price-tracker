@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import Header from "@/common/header";
 import Footer from "@/components/layout/footer";
+import LenisProvider from "@/components/providers/lenis-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 const charm = Charm({
@@ -25,10 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${charm.variable} antialiased`}>
-        <Header />
-        {children}
-        <Footer />
-        <Toaster richColors />
+        <LenisProvider>
+          <Header />
+          {children}
+          <Footer />
+          <Toaster richColors />
+        </LenisProvider>
       </body>
     </html>
   );
