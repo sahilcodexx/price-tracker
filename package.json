@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mendable/firecrawl-js": "^4.12.0",
+    "@paper-design/shaders-react": "^0.0.72",
     "@radix-ui/react-slot": "^1.2.4",
     "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.93.3",
