@@ -71,7 +71,7 @@ export default function FaqSection() {
           <p className="text-muted-foreground">
             Still have questions? We&apos;re here to help.{" "}
             <a
-              href="https://x.com/sahilcodex"
+              href="https://x.com/sahilcodexx"
               className="text-foreground underline"
             >
               Contact support

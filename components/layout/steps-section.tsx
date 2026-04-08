@@ -117,7 +117,7 @@ const DownPriceAnimation = () => {
       {bars.map((bar, i) => (
         <motion.div
           key={i}
-          className="bg-white shadow-sm w-10 origin-bottom flex items-end justify-center"
+          className="bg-white shadow-sm w-10 origin-bottom flex items-end justify-center bg-[linear-gradient(to_right,transparent_0,transparent_0.7px,var(--color-blue-50)_0.5px,var(--color-white)_1px)] bg-size-[1px_100%]"
           style={{ height: bar.height }}
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
@@ -128,7 +128,7 @@ const DownPriceAnimation = () => {
             ease: "easeOut",
           }}
         >
-          <span className="flex items-center justify-center h-full text-xs font-semibold text-neutral-500 rotate-[-90deg] text-center mb-2">
+          <span className="flex items-center justify-center h-full text-xs font-semibold text-neutral-500 -rotate-90 text-center mb-2">
             ₹{bar.price}
           </span>
         </motion.div>

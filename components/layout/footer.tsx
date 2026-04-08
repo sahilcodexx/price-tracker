@@ -47,19 +47,19 @@ const Footer = () => {
         </div>
         <div className="flex justify-between items-start h-10 pt-3 mb-5 bg-neutral-50 px-3">
           <div>
-            <p className="text-xs text-neutral-500 flex gap-1">
+            <span className="text-xs text-neutral-500 flex gap-1">
               <p className="text-neutral-700"> © 2026 </p>
               Trackhatke. All rights reserved.
-            </p>
+            </span>
           </div>
           <div>
             <p className="text-xs text-neutral-400">
               Made by{" "}
               <a
-                href="https://github.com/sahilcodex"
+                href="https://github.com/sahilcodexx"
                 className="text-neutral-600 hover:text-neutral-800 duration-200 transition-all"
               >
-                Sahilcodex
+                sahilcodexx
               </a>
             </p>
           </div>
