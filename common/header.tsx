@@ -30,7 +30,7 @@ const Header = () => {
 
   return (
     <header className="bg-neutral-50/30 px-8 py-3 border-b border-neutral-200  backdrop-blur-lg top-0 sticky z-20 w-full">
-      <div className="flex items-center justify-between md:max-w-4xl mx-auto max-w-sm ">
+      <div className="flex items-center justify-between md:max-w-5xl mx-auto max-w-sm ">
         <div>
           <Image
             src={"/lightlogo.png"}
