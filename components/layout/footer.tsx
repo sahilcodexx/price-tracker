@@ -40,7 +40,7 @@ const Footer = () => {
         </div>
         <div className="lg:mask-b-from-40% flex items-center">
           <div className="flex items-center justify-center pt-10 w-full">
-            <h2 className="bg-linear-to-t from-neutral-100 text-center via-neutral-200 to-neutral-300 bg-clip-text text-6xl font-bold text-transparent md:text-[160px]">
+            <h2 className="bg-linear-to-t from-neutral-100 text-center via-neutral-200 to-neutral-300 bg-clip-text text-6xl font-bold text-transparent md:text-[180px]">
               Trackhatke.
             </h2>
           </div>
