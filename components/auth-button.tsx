@@ -25,7 +25,7 @@ const AuthButton = ({ user }: { user: User | null }) => {
     <div>
       <Button
         onClick={() => setShowAuthModel(true)}
-        className="bg-orange-500 hover:bg-orange-600"
+        className="bg-linear-to-b from-blue-500 to-blue-700 text-xs"
       >
         Sgin in
       </Button>

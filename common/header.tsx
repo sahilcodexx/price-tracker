@@ -33,11 +33,11 @@ const Header = () => {
       <div className="flex items-center justify-between md:max-w-5xl mx-auto max-w-sm ">
         <div>
           <Image
-            src={"/lightlogo.png"}
+            src={"/blacklogo.png"}
             alt="logo"
             width={600}
             height={200}
-            className="h-4 w-auto"
+            className="h-4 w-auto "
           />
         </div>
         <div>
