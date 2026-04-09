@@ -25,10 +25,9 @@ const AuthModel = ({ isOpen, onClose }: AuthModelProps) => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
+          <DialogTitle>Welcome to Trackhatke !</DialogTitle>
           <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            Create an account to start tracking product prices, get alerts, and manage your wishlist.
           </DialogDescription>
         </DialogHeader>
         <Button onClick={handleGoogleLogin} className="outline">
