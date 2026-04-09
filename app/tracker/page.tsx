@@ -29,8 +29,18 @@ const Tracker = async () => {
   const products = user ? await getProducts() : [];
 
   return (
-    <Container className="min-h-screen">
-      <div>Tracker</div>
+    <Container className="min-h-screen flex flex-col gap-10">
+      <div className="flex items-center justify-center my-20">
+        <h2 className="text-4xl max-w-md text-center font-medium text-neutral-500">
+          Track your{" "}
+          <span className="text-black text-5xl [font-family:var(--font-charm)] font-bold">
+            Product
+          </span>{" "}
+           and  <span className="text-black text-5xl [font-family:var(--font-charm)] font-bold">
+            Price
+          </span>{" "} history
+        </h2>
+      </div>
       <ProductForm user={user} />
       {products.length === 0 && <Features />}
       {user && products.length > 0 && (
