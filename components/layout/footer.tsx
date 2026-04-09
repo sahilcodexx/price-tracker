@@ -14,22 +14,22 @@ const Footer = () => {
               Track prices from all major e-commerce sites and save money.
             </p>
           </span>
-          <span className="flex flex-col gap-0.5">
-            <h1>Follow me</h1>
+          <span className="flex flex-col gap-1">
+            <h1 className="text-neutral-500 text-lg">Follow on</h1>
             <span className="flex items-center gap-3">
-              <a href="https://github.com/yourusername">
+              <a href="https://github.com/sahilcodexx">
                 <Github
                   size={16}
                   className="text-neutral-500 hover:text-neutral-800 duration-200 transition-all"
                 />
               </a>
-              <a href="https://www.yourwebsite.com">
+              <a href="https://www.sahilcodex.vercel.app">
                 <Globe
                   size={16}
                   className="text-neutral-500 hover:text-neutral-800 duration-200 transition-all"
                 />
               </a>
-              <a href="https://www.yourwebsite.com">
+              <a href="https://x.com/sahilcodexx">
                 <Twitter
                   size={16}
                   className="text-neutral-500 hover:text-neutral-800 duration-200 transition-all"
