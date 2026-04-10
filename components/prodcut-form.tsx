@@ -24,34 +24,36 @@ const ProductForm = ({ user }: { user?: User | null }) => {
     const formData = new FormData();
     formData.append("url", url);
 
-    const result = await addProdcut(formData) as { error?: string; message?: string } | undefined;
+    const result = (await addProdcut(formData)) as
+      | { error?: string; message?: string }
+      | undefined;
 
     if (result?.error) {
-      toast.error(result.error)
+      toast.error(result.error);
     } else {
-      toast.success(result?.message || "Proudct tracked successfully")
-      setUrl("")
+      toast.success(result?.message || "Proudct tracked successfully");
+      setUrl("");
     }
-    setIsLoading(false)
+    setIsLoading(false);
   };
 
   return (
     <>
       <form onSubmit={handleSubmit} className="max-w-2xl mx-auto w-full">
-        <div className="flex flex-col sm:flex-row gap-2">
+        <div className="flex flex-col sm:flex-row gap-2 bg-white relative border-transparent border ring ring-neutral-300/50 shadow-sm  rounded-full">
           <Input
             type="url"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="Paste your URL (Amazon,Walmart,Flipkart,...)"
-            className="h-12 text-base bg-white "
+            className="h-15 text-base border-none shadow-none pl-5 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-transparent focus-visible:border-transparent"
             required
             disabled={isLoading}
           />
           <Button
             type="submit"
             disabled={isLoading}
-            className="bg-orange-500 hover:bg-orange-600 h-10 sm:h-12 px-8"
+            className="bg-linear-to-b from-blue-500 text-xs to-blue-700 px-4 h-10 md:h-12 absolute right-2 top-1.5 rounded-full "
             size="sm"
           >
             {isLoading ? (
