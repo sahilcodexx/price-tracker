@@ -30,7 +30,7 @@ const Tracker = async () => {
 
   return (
     <Container className="min-h-screen flex flex-col gap-10 bg-linear-to-tl ">
-      <div className="flex items-center justify-center my-20">
+      <div className="flex items-center justify-center my-25">
         <h2 className="text-4xl max-w-md text-center font-medium text-neutral-500 relative ">
           Track your{" "}
           <span className="text-black text-5xl [font-family:var(--font-charm)] font-bold">
@@ -43,10 +43,16 @@ const Tracker = async () => {
           history
           <img
             src="/product.png"
-            alt="prodcut"
-            className="absolute w-20 -top-18 right-22 -z-10 rotate-8 opacity-70 "
+            className="absolute w-20 h-20 -top-12 -z-1 left-1/2 -translate-x-1/2 -translate-y-1/2  opacity-90"
           />
-          
+          <img
+            src="/product2.png"
+            className="absolute w-20 h-20 -top-12 -z-2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-10 opacity-90"
+          />
+          <img
+            src="/product3.png"
+            className="absolute w-20 h-20 -top-12 -z-3 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-10 opacity-90"
+          />
         </h2>
       </div>
       <ProductForm user={user} />
