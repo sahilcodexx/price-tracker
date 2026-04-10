@@ -1,9 +1,16 @@
 import Container from "@/common/container";
-import Features from "@/components/features";
+
 import ProductForm from "@/components/prodcut-form";
 import ProductCard from "@/components/product-card";
 import { TrendingDown } from "lucide-react";
 import { createClient } from "@/lib/superbase/server";
+import { Badge } from "@/components/ui/badge";
+
+const images = [
+  { src: "/product.png", className: "rotate-0 -z-1" },
+  { src: "/product2.png", className: "rotate-10 -z-2" },
+  { src: "/product3.png", className: "-rotate-10 -z-3" },
+];
 
 async function getProducts() {
   const supabase = await createClient();
@@ -29,9 +36,19 @@ const Tracker = async () => {
   const products = user ? await getProducts() : [];
 
   return (
-    <Container className="min-h-screen flex flex-col gap-10 bg-linear-to-tl ">
+    <Container className="min-h-screen flex flex-col  bg-linear-to-tl ">
+      <div className="flex items-center justify-center gap-4 mt-15 relative">
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image.src}
+            className={`${image.className} w-30 h-30 opacity-90 absolute`}
+            alt={`product-${index}`}
+          />
+        ))}
+      </div>
       <div className="flex items-center justify-center my-25">
-        <h2 className="text-4xl max-w-md text-center font-medium text-neutral-500 relative ">
+        <h2 className="text-4xl max-w-md  text-center font-medium text-neutral-500 ">
           Track your{" "}
           <span className="text-black text-5xl [font-family:var(--font-charm)] font-bold">
             Product
@@ -41,31 +58,33 @@ const Tracker = async () => {
             Price
           </span>{" "}
           history
-          <img
-            src="/product.png"
-            className="absolute w-20 h-20 -top-12 -z-1 left-1/2 -translate-x-1/2 -translate-y-1/2  opacity-90"
-          />
-          <img
-            src="/product2.png"
-            className="absolute w-20 h-20 -top-12 -z-2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-10 opacity-90"
-          />
-          <img
-            src="/product3.png"
-            className="absolute w-20 h-20 -top-12 -z-3 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-10 opacity-90"
-          />
         </h2>
       </div>
       <ProductForm user={user} />
-      {products.length === 0 && <Features />}
+      {products.length === 0 && (
+        <>
+          <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center md:space-y-12 pt-10">
+            <h2 className="text-balance text-4xl font-medium lg:text-5xl">
+              Your Ultimate Product Comparison Tool
+            </h2>
+            <p>
+              Discover, compare, and save. Our platform helps you find the best
+              products online by providing detailed comparisons and price
+              tracking, ensuring you make informed purchasing decisions.
+            </p>
+          </div>
+          
+        </>
+      )}
       {user && products.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 py-20">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-2xl font-semibold text-neutral-900">
               Your Tracked Product
             </h3>
-            <span className="text-sm text-neutral-500">
+            <Badge>
               {products.length} {products.length === 1 ? "product" : "products"}
-            </span>
+            </Badge>
           </div>
           <div className="grid gap-6 md:grid-cols-2 items-start ">
             {products.map((product) => (

@@ -47,16 +47,7 @@ export default function Features() {
   return (
     <section className="py-12 md:py-20">
       <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
-        <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center md:space-y-12">
-          <h2 className="text-balance text-4xl font-medium lg:text-5xl">
-            Your Ultimate Product Comparison Tool
-          </h2>
-          <p>
-            Discover, compare, and save. Our platform helps you find the best
-            products online by providing detailed comparisons and price
-            tracking, ensuring you make informed purchasing decisions.
-          </p>
-        </div>
+
 
         <div className="relative mx-auto grid max-w-4xl divide-x divide-y border *:p-12 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
