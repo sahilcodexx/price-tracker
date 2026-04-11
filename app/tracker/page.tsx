@@ -48,7 +48,7 @@ const Tracker = async () => {
         ))}
       </div>
       <div className="flex items-center justify-center my-25">
-        <h2 className="text-4xl max-w-md  text-center font-medium text-neutral-500 ">
+        <h2 className="md:text-4xl  text-3xl max-w-xs md:max-w-md  text-center font-medium text-neutral-500 ">
           Track your{" "}
           <span className="text-black text-5xl [font-family:var(--font-charm)] font-bold">
             Product
@@ -63,12 +63,12 @@ const Tracker = async () => {
       <ProductForm user={user} />
       {products.length === 0 && (
         <>
-          <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center md:space-y-12 pt-10">
-            <h2 className="text-balance text-4xl font-medium lg:text-5xl">
-              Welcome to Price Tracker!
+          <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center md:space-y-6 pt-10">
+            <h2 className="text-balance text-3xl font-medium lg:text-4xl">
+              Track your 1st product!
             </h2>
             <p className="text-lg text-neutral-600">
-              You’re here for the first time — add your first product to start
+              You’re here for the first time add your first product to start
               tracking prices, getting alerts, and saving smarter.
             </p>
             <p className="text-sm text-neutral-500">
@@ -76,7 +76,6 @@ const Tracker = async () => {
               automatically.
             </p>
           </div>
-          
         </>
       )}
       {user && products.length > 0 && (

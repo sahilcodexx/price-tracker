@@ -3,6 +3,7 @@ import { Button } from "../ui/button";
 import { Play } from "lucide-react";
 import Image from "next/image";
 import MeshGradient from "../shaders/mesh-gradient";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -35,12 +36,14 @@ const HeroSection = () => {
             </p>
           </div>
           <div className=" flex items-center justify-center gap-4">
-            <Button variant={"outline"} className="shadow-lg">
+            {/* <Button variant={"outline"} className="shadow-lg">
               <Play /> Get Demo
-            </Button>
-            <Button className="bg-linear-to-b from-blue-500 to-blue-700">
-              Get into details
-            </Button>
+            </Button> */}
+            <Link href="/tracker">
+              <Button className="bg-linear-to-b from-blue-500 to-blue-700">
+                Start Tracking
+              </Button>
+            </Link>
           </div>
         </section>
         <div className="w-full  relative overflow-hidden  max-w-330 px-2 m-auto">
