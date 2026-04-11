@@ -1,3 +1,4 @@
+import Container from "@/common/container";
 import {
   Cpu,
   Fingerprint,
@@ -45,22 +46,32 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-12 md:py-20">
-      <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
+    <Container>
+      <section className=" pb-20">
+        <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
+          <div className="flex flex-col items-center gap-4">
+            <h2 className="text-3xl md:text-4xl max-w-sm text-center font-medium capitalize leading-tighter tracking-tight">
+              Powerful Features for Smarter Shopping
+            </h2>
+            <p className="text-sm text-neutral-600 text-center max-w-xs">
+              Discover how our platform empowers you to make informed decisions
+              and save money.
+            </p>
+          </div>
 
-
-        <div className="relative mx-auto grid max-w-4xl divide-x divide-y border *:p-12 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, index) => (
-            <div key={index} className="space-y-3 bg-white">
-              <div className="flex items-center gap-2">
-                <feature.icon className="size-4" />
-                <h3 className="text-sm font-medium">{feature.title}</h3>
+          <div className="relative mx-auto grid max-w-5xl divide-x divide-y border *:p-12 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map((feature, index) => (
+              <div key={index} className="space-y-3 bg-white">
+                <div className="flex items-center gap-2">
+                  <feature.icon className="size-4" />
+                  <h3 className="text-sm font-medium">{feature.title}</h3>
+                </div>
+                <p className="text-sm">{feature.description}</p>
               </div>
-              <p className="text-sm">{feature.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Container>
   );
 }

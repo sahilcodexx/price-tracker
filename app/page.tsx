@@ -2,6 +2,7 @@
 // import ProductForm from "@/components/prodcut-form";
 // import ProductCard from "@/components/product-card";
 // import { TrendingDown } from "lucide-react";
+import Features from "@/components/features";
 import FaqSection from "@/components/layout/faqs-sections";
 import HeroSection from "@/components/layout/hero-section";
 import OrbitAnimation from "@/components/layout/orbit-animation";
@@ -36,6 +37,7 @@ export default async function Home() {
   return (
     <>
       <HeroSection />
+      <Features />
       <Steps />
       <OrbitAnimation />
       <TestimonialsSection  />

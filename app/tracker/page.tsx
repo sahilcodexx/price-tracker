@@ -65,12 +65,15 @@ const Tracker = async () => {
         <>
           <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center md:space-y-12 pt-10">
             <h2 className="text-balance text-4xl font-medium lg:text-5xl">
-              Your Ultimate Product Comparison Tool
+              Welcome to Price Tracker!
             </h2>
-            <p>
-              Discover, compare, and save. Our platform helps you find the best
-              products online by providing detailed comparisons and price
-              tracking, ensuring you make informed purchasing decisions.
+            <p className="text-lg text-neutral-600">
+              You’re here for the first time — add your first product to start
+              tracking prices, getting alerts, and saving smarter.
+            </p>
+            <p className="text-sm text-neutral-500">
+              Just enter a product above to begin monitoring price drops
+              automatically.
             </p>
           </div>
           
