@@ -12,6 +12,7 @@ import { Badge } from "./ui/badge";
 import {
   ChevronDown,
   ChevronUp,
+  DollarSign,
   ExternalLink,
   TrendingDown,
 } from "lucide-react";
@@ -57,12 +58,11 @@ const ProductCard = ({ prodcut }: { prodcut: Product }) => {
               {prodcut.name}
             </h3>
             <div className="flex items-baseline gap-2">
-              <span className="text-3xl font-bold text-orange-500">
+              <span className="text-2xl font-bold text-blue-500">
                 {prodcut.currency} {prodcut.current_price}
               </span>
-              <Badge variant="secondary" className="gap-1">
-                <TrendingDown className="w-3 h-3" />
-                Tracking
+              <Badge variant="outline" className="gap-1 ">
+                Price
               </Badge>
             </div>
           </div>

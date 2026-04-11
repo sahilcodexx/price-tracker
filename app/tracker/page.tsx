@@ -88,7 +88,7 @@ const Tracker = async () => {
               {products.length} {products.length === 1 ? "product" : "products"}
             </Badge>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 items-start ">
+          <div className="grid gap-6 md:grid-cols-2 items-start min-h-[50vh] ">
             {products.map((product) => (
               <ProductCard key={product.id} prodcut={product} />
             ))}
