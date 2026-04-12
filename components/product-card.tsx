@@ -57,8 +57,8 @@ const ProductCard = ({ prodcut }: { prodcut: Product }) => {
             <h3 className="font-semibold text-neutral-900 line-clamp-2 mb-2">
               {prodcut.name}
             </h3>
-            <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-bold text-blue-500">
+            <div className="flex items-center gap-2">
+              <span className="text-2xl font-bold text-blue-600">
                 {prodcut.currency} {prodcut.current_price}
               </span>
               <Badge variant="outline" className="gap-1 ">
