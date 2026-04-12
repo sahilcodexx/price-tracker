@@ -51,10 +51,10 @@ const HeroSection = () => {
           <div className="flex justify-center">
             <Image
               alt="hero Image"
-              src={"/image.png"}
+              src={"/banner.webp"}
               width={1200}
               height={800}
-              className="absolute z-10 border  rounded-t-3xl  px-7 lg:p-0"
+              className="absolute z-10 border  rounded-t-3xl bg-cover px-7 lg:p-0"
             />
           </div>
           <div className="w-full rounded-b-3xl lg:rounded-b-[40px]  bg-linear-to-t from-blue-400 via-blue-700 to-blue-800 h-40 md:h-95 lg:min-h-155 mask-t-from-30% flex items-center justify-center relative"></div>
