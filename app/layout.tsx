@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Charm } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import Header from "@/common/header";
@@ -102,6 +103,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${charm.variable} antialiased`}>
+        <Analytics />
         <LenisProvider>
           <Header />
           {children}
